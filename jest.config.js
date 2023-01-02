@@ -14,5 +14,6 @@ module.exports = {
     "@web3-storage/multipart-parser": require.resolve(
       "@web3-storage/multipart-parser"
     ),
+    "^~/(.*)$": "<rootDir>/app/$1",
   },
 };
