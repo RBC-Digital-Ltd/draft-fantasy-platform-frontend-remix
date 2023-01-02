@@ -60,5 +60,5 @@
     "*.{ts,tsx,js,jsx}": "eslint --cache --fix",
     "*.{ts,tsx,js,jsx,css,md}": "prettier --write"
   },
-  "version": "0.0.4"
+  "version": "0.0.5"
 }
