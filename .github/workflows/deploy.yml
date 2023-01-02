@@ -130,7 +130,7 @@ jobs:
         with:
           url: https://vault.rbcdigital.co.uk:8200
           # caCertificate: ${{ secrets.VAULT_CA_CERT }}
-          role: myproject-production
+          role: all-projects
           method: jwt
           jwtGithubAudience: sigstore # set the GitHub token's aud claim
           secrets: kv/fly_api_token value | FLY_API_TOKEN
