@@ -9,3 +9,5 @@ node_modules
 /playwright/.cache/
 
 /app/tailwind.css
+
+.eslintcache
