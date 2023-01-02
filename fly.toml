@@ -1,6 +1,6 @@
 # fly.toml file generated for base-ray-stack on 2022-12-25T12:27:01Z
 
-app = "base-ray-stack"
+app = "draft-fantasy-platform-frontend"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
