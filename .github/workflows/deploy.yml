@@ -136,7 +136,7 @@ jobs:
           role: myproject-production
           method: jwt
           jwtGithubAudience: sigstore # set the GitHub token's aud claim
-          secrets: kv/fly_api_token value | FLY_API_TOKEN
+          secrets: kv/percy_token value | FLY_API_TOKEN
 
       - name: Setup Flyctl CLI
         uses: superfly/flyctl-actions/setup-flyctl@master
