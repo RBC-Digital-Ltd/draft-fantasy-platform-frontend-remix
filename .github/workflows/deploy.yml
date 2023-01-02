@@ -117,6 +117,7 @@ jobs:
           retention-days: 30
 
   deploy:
+    needs: [lint, playwright, jest]
     name: 🐳 deploy
     # only build/deploy master branch on pushes
     if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
