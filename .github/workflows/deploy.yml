@@ -133,7 +133,7 @@ jobs:
           role: myproject-production
           method: jwt
           jwtGithubAudience: sigstore # set the GitHub token's aud claim
-          secrets: kv/percy_token value
+          secrets: kv/fly_api_token value | FLY_API_TOKEN
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
