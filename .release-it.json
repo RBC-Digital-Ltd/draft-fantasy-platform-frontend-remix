@@ -1,0 +1,19 @@
+{
+  "git": {
+    "commitMessage": "",
+    "changelog": "yarn auto-changelog --stdout --commit-limit false --unreleased --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs",
+    "requireBranch": "master",
+    "addUntrackedFiles": true,
+    "commitArgs": "--amend --no-edit",
+    "pushArgs": "--follow-tags --force-with-lease"
+  },
+  "github": {
+    "release": false
+  },
+  "hooks": {
+    "after:bump": "yarn auto-changelog -p --commit-limit false"
+  },
+  "npm": {
+    "publish": false
+  }
+}
