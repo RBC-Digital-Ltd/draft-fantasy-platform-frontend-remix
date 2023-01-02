@@ -114,3 +114,31 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+  deploy:
+    name: 🐳 deploy
+    # only build/deploy master branch on pushes
+    if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev') && github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Retrieve secret from Vault
+        uses: hashicorp/vault-action@v2.4.2
+        with:
+          url: https://vault.rbcdigital.co.uk:8200
+          # caCertificate: ${{ secrets.VAULT_CA_CERT }}
+          role: myproject-production
+          method: jwt
+          jwtGithubAudience: sigstore # set the GitHub token's aud claim
+          secrets: kv/fly_api_token value | FLY_API_TOKEN
+
+      - name: Setup Flyctl CLI
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Deploy using remote builder
+        run: flyctl deploy --remote-only
