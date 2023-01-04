@@ -93,6 +93,20 @@ jobs:
       - name: 🏄 Copy test env vars
         run: cp .env.example .env
 
+      - name: Retrieve secret from Vault
+        uses: hashicorp/vault-action@v2.4.3
+        with:
+          url: https://vault.rbcdigital.co.uk:8200
+          # caCertificate: ${{ secrets.VAULT_CA_CERT }}
+          role: all-projects
+          method: jwt
+          jwtGithubAudience: sigstore # set the GitHub token's aud claim
+          secrets: |
+            kv/auth0 client_id | AUTH0_CLIENT_ID ;
+            kv/auth0 client_secret | AUTH0_CLIENT_SECRET ;
+            kv/auth0 domain | AUTH0_DOMAIN ;
+            kv/auth0 logout_url | AUTH0_LOGOUT_URL
+
       - name: ⎔ Setup node
         uses: actions/setup-node@v3
         with:
