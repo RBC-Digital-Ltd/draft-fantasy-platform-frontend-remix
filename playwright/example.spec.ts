@@ -7,22 +7,18 @@ test("homepage has title and links to intro page", async ({ page }) => {
   await expect(page).toHaveTitle(/New Remix App/);
 
   // create a locator
-  const getStarted = page.getByRole("link", {
-    name: "15m Quickstart Blog Tutorial",
+  const getStarted = page.getByRole("button", {
+    name: "Sign In with Auth0",
   });
 
-  // Expect an attribute "to be strictly equal" to the value.
-  await expect(getStarted).toHaveAttribute(
-    "href",
-    "https://remix.run/tutorials/blog"
-  );
+  await expect(getStarted).toBeVisible();
 
   // Click the get started link.
   await getStarted.click();
 
-  const newPagePromise = page.waitForEvent("popup");
+  // const newPagePromise = page.waitForEvent("popup");
 
-  const newPage = await newPagePromise;
+  // const newPage = await newPagePromise;
   // Expects the URL to contain intro.
-  await expect(newPage).toHaveURL(/.*remix/);
+  await expect(page).toHaveURL(/.*auth0/);
 });
