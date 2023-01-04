@@ -165,6 +165,7 @@ jobs:
       - name: Setup Secrets
         run: |
           export AUTH0_RETURN_TO_URL=$(flyctl info -j | jq .Hostname)
+          echo $AUTH0_RETURN_TO_URL
           flyctl secrets set AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID
           flyctl secrets set AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
           flyctl secrets set AUTH0_DOMAIN=$AUTH0_DOMAIN
