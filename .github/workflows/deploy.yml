@@ -170,8 +170,8 @@ jobs:
           flyctl secrets set AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET
           flyctl secrets set AUTH0_DOMAIN=$AUTH0_DOMAIN
           flyctl secrets set AUTH0_LOGOUT_URL=$AUTH0_LOGOUT_URL
-          flyctl secrets set AUTH0_RETURN_TO_URL=$AUTH0_RETURN_TO_URL
-          flyctl secrets set AUTH0_CALLBACK_URL=$AUTH0_RETURN_TO_URL/callback
+          flyctl secrets set AUTH0_RETURN_TO_URL=https://$AUTH0_RETURN_TO_URL
+          flyctl secrets set AUTH0_CALLBACK_URL=https://$AUTH0_RETURN_TO_URL/callback
           flyctl secrets set SECRETS=$SECRETS
 
       - name: Deploy using remote builder
