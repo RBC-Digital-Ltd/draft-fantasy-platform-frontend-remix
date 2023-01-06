@@ -11,6 +11,11 @@ import {
   SECRETS,
 } from "~/constants/index.server";
 
+interface Auth0ProfileToken {
+  profile: Auth0Profile;
+  accessToken: string;
+}
+
 const sessionStorage = createCookieSessionStorage({
   cookie: {
     name: "_remix_session",
@@ -22,7 +27,7 @@ const sessionStorage = createCookieSessionStorage({
   },
 });
 
-export const auth = new Authenticator<Auth0Profile>(sessionStorage);
+export const auth = new Authenticator<Auth0ProfileToken>(sessionStorage);
 
 const auth0Strategy = new Auth0Strategy(
   {
@@ -30,12 +35,17 @@ const auth0Strategy = new Auth0Strategy(
     clientID: AUTH0_CLIENT_ID,
     clientSecret: AUTH0_CLIENT_SECRET,
     domain: AUTH0_DOMAIN,
+    scope: "openid profile email",
+    audience: "https://draft-fantasy-pl-backend.fplstats.co.uk/",
   },
-  async ({ profile }) => {
+  async ({ profile, accessToken }) => {
     //
     // Use the returned information to process or write to the DB.
     //
-    return profile;
+    return {
+      profile,
+      accessToken,
+    };
   }
 );
 
