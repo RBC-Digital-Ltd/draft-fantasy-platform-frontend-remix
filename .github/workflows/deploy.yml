@@ -154,7 +154,8 @@ jobs:
             kv/auth0 client_secret | AUTH0_CLIENT_SECRET ;
             kv/auth0 domain | AUTH0_DOMAIN ;
             kv/auth0 logout_url | AUTH0_LOGOUT_URL ;
-            kv/auth0 web_client_secret | SECRETS
+            kv/auth0 web_client_secret | SECRETS ;
+            kv/fantasy_api url | API_BASE
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
