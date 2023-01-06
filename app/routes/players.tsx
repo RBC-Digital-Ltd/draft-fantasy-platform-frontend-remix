@@ -14,6 +14,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
+import { API_BASE } from "~/constants/index.server";
+
 type Player = {
   id: string;
   name: string;
@@ -27,9 +29,9 @@ export const loader = async ({ request }: LoaderArgs) => {
     failureRedirect: "/",
   });
 
-  console.log("API Base", process.env.API_BASE);
+  console.log("API Base", API_BASE);
 
-  const res = await fetch(`${process.env.API_BASE}/players`, {
+  const res = await fetch(`${API_BASE}/players`, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
 
