@@ -27,6 +27,8 @@ export const loader = async ({ request }: LoaderArgs) => {
     failureRedirect: "/",
   });
 
+  console.log(process.env.API_BASE);
+
   const res = await fetch(`${process.env.API_BASE}/players`, {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
