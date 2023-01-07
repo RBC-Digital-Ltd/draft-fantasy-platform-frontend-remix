@@ -9,10 +9,19 @@ import {
   AUTH0_CLIENT_SECRET,
   AUTH0_DOMAIN,
   SECRETS,
+  API_BASE,
 } from "~/constants/index.server";
 
+interface UserProfile {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  auth0Id: string;
+}
+
 interface Auth0ProfileToken {
-  profile: Auth0Profile;
+  userProfile?: UserProfile;
   accessToken: string;
 }
 
@@ -38,12 +47,20 @@ const auth0Strategy = new Auth0Strategy(
     scope: "openid profile email",
     audience: "https://draft-fantasy-pl-backend.fplstats.co.uk/",
   },
-  async ({ profile, accessToken }) => {
-    //
-    // Use the returned information to process or write to the DB.
-    //
+  async ({ accessToken }) => {
+    const profileRes = await fetch(`${API_BASE}/profile`, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+
+    if (!profileRes.ok) {
+      console.error("Unable to get user profile");
+      return { accessToken };
+    }
+
+    const userProfile: UserProfile = await profileRes.json();
+
     return {
-      profile,
+      userProfile,
       accessToken,
     };
   }

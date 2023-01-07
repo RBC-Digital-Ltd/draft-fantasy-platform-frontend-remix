@@ -5,15 +5,15 @@ import { Form, useLoaderData } from "@remix-run/react";
 import { auth } from "~/utils/auth.server";
 
 export const loader = async ({ request }: LoaderArgs) => {
-  const { profile, accessToken } = await auth.isAuthenticated(request, {
+  const { userProfile, accessToken } = await auth.isAuthenticated(request, {
     failureRedirect: "/",
   });
 
-  return json({ profile, accessToken });
+  return json({ userProfile, accessToken });
 };
 
 export default function Screen() {
-  const { profile, accessToken } = useLoaderData<typeof loader>();
+  const { userProfile, accessToken } = useLoaderData<typeof loader>();
   return (
     <>
       <Form method="post" action="/logout">
@@ -23,7 +23,7 @@ export default function Screen() {
       <hr />
 
       <pre>
-        <code>{JSON.stringify(profile, null, 2)}</code>
+        <code>{JSON.stringify(userProfile, null, 2)}</code>
       </pre>
       <hr />
       <pre>
