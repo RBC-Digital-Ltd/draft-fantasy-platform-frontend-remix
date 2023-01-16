@@ -45,9 +45,11 @@ export default function Leagues() {
         <tbody>
           {leagues.map((league) => (
             <tr key={league.id}>
-              <Link to={`/leagues/${league.id}/team/${league.teams[0].id}`}>
-                <td>{league.id}</td>
-              </Link>
+              <td>
+                <Link to={`/leagues/${league.id}/team/${league.teams[0].id}`}>
+                  {league.id}
+                </Link>
+              </td>
               <td>{league.name}</td>
             </tr>
           ))}
