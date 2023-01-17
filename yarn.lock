@@ -2128,10 +2128,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@remix-run/dev@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@remix-run/dev/-/dev-1.10.0.tgz#3a5b2cb52eee6da1d993538a44a307375bf694df"
-  integrity sha512-WBbxkPSkN1LQx0gdzGT+VBSbQLGiFW/Q7HaAYBxV7Wd7DdByk61GPz9CRb1K9a7eWGJ+FzZeYvRwqYkz7moRgA==
+"@remix-run/dev@^1.10.1":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@remix-run/dev/-/dev-1.10.1.tgz#1a896ec9bad7943618be5ca1e52da8eec9330664"
+  integrity sha512-cdAseA/b7T+pIaj8M6LEdDL35uD8OysElz36KS5bCaZpLjr7ID2Za4EBDA4weakoaDb1dpQX/MV3tOZ7LKvJqQ==
   dependencies:
     "@babel/core" "^7.18.6"
     "@babel/plugin-syntax-jsx" "^7.18.6"
@@ -2141,7 +2141,7 @@
     "@babel/types" "^7.20.2"
     "@esbuild-plugins/node-modules-polyfill" "^0.1.4"
     "@npmcli/package-json" "^2.0.0"
-    "@remix-run/server-runtime" "1.10.0"
+    "@remix-run/server-runtime" "1.10.1"
     arg "^5.0.1"
     cacache "^15.0.5"
     chalk "^4.1.2"
@@ -2263,18 +2263,6 @@
     compression "^1.7.4"
     express "^4.17.1"
     morgan "^1.10.0"
-
-"@remix-run/server-runtime@1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@remix-run/server-runtime/-/server-runtime-1.10.0.tgz#d498332a8b6f7ee9a2dca5ac987619a1bce8f9e1"
-  integrity sha512-2Hlyv96JI4R3ygsF+zgC7NxfeRO1lqNxH/0GpPniyZIfq3JT4+PmTOgbx7HSsj/jgJzDfCyhwjymGYK84mBMKg==
-  dependencies:
-    "@remix-run/router" "1.2.1"
-    "@types/cookie" "^0.4.0"
-    "@web3-storage/multipart-parser" "^1.0.0"
-    cookie "^0.4.1"
-    set-cookie-parser "^2.4.8"
-    source-map "^0.7.3"
 
 "@remix-run/server-runtime@1.10.1", "@remix-run/server-runtime@^1.9.0":
   version "1.10.1"
