@@ -2237,6 +2237,11 @@
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.3.0.tgz#b6ee542c7f087b73b3d8215b9bf799f648be71cb"
   integrity sha512-nwQoYb3m4DDpHTeOwpJEuDt8lWVcujhYYSFGLluC+9es2PyLjm+jjq3IeRBQbwBtPLJE/lkuHuGHr8uQLgmJRA==
 
+"@remix-run/router@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.3.1.tgz#3bb0b6ddc0a276e8dc1138d08f63035e4e23e8bf"
+  integrity sha512-+eun1Wtf72RNRSqgU7qM2AMX/oHp+dnx7BHk1qhK5ZHzdHTUU4LA1mGG1vT+jMc8sbhG3orvsfOmryjzx2PzQw==
+
 "@remix-run/serve@^1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@remix-run/serve/-/serve-1.9.0.tgz#b415ddb3006715bbe92788267e5768b71ca726a7"
@@ -2247,7 +2252,7 @@
     express "^4.17.1"
     morgan "^1.10.0"
 
-"@remix-run/server-runtime@1.11.0", "@remix-run/server-runtime@^1.9.0":
+"@remix-run/server-runtime@1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@remix-run/server-runtime/-/server-runtime-1.11.0.tgz#95949378ed057f9e101cf7b673eb40e6906ceff3"
   integrity sha512-6yP6d5KXRSwMgydKkwXi+B2sqDkCVn0/DgflHz8F0jRxnBn2ZWW1T9QTQdaXO3yL+wI6h4MN++TUbK/yiz40IA==
@@ -2266,6 +2271,19 @@
   dependencies:
     "@remix-run/router" "1.1.0"
     "@types/cookie" "^0.4.0"
+    "@web3-storage/multipart-parser" "^1.0.0"
+    cookie "^0.4.1"
+    set-cookie-parser "^2.4.8"
+    source-map "^0.7.3"
+
+"@remix-run/server-runtime@^1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/server-runtime/-/server-runtime-1.12.0.tgz#a2072c2e88b948b2a657993574cad01d42cf8cd4"
+  integrity sha512-7I0165Ns/ffPfCEfuiqD58lMderTn2s/sew1xJ34ONa21mG/7+5T7diHIgxKST8rS3816JPmlwSqUaHgwbmO6Q==
+  dependencies:
+    "@remix-run/router" "1.3.1"
+    "@types/cookie" "^0.4.0"
+    "@types/react" "^18.0.15"
     "@web3-storage/multipart-parser" "^1.0.0"
     cookie "^0.4.1"
     set-cookie-parser "^2.4.8"
@@ -3726,7 +3744,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.0.27":
+"@types/react@*", "@types/react@^18.0.15", "@types/react@^18.0.27":
   version "18.0.27"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.27.tgz#d9425abe187a00f8a5ec182b010d4fd9da703b71"
   integrity sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==
