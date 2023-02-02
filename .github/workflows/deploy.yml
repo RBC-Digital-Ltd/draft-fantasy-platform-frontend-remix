@@ -94,7 +94,7 @@ jobs:
         run: cp .env.example .env
 
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.3
+        uses: hashicorp/vault-action@v2.5.0
         with:
           url: https://vault.rbcdigital.co.uk:8200
           # caCertificate: ${{ secrets.VAULT_CA_CERT }}
@@ -141,7 +141,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.11.0
 
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.3
+        uses: hashicorp/vault-action@v2.5.0
         with:
           url: https://vault.rbcdigital.co.uk:8200
           # caCertificate: ${{ secrets.VAULT_CA_CERT }}
