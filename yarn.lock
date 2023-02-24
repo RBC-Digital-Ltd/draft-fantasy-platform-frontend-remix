@@ -13944,10 +13944,10 @@ remark-squeeze-paragraphs@4.0.0:
   dependencies:
     mdast-squeeze-paragraphs "^4.0.0"
 
-remix-auth-auth0@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/remix-auth-auth0/-/remix-auth-auth0-1.5.1.tgz#887aeb66035ad52c69ca4de3de24eda25da431cc"
-  integrity sha512-p1Fub0vPrgVSenGibm8q6gmm6MSsHWvBrtUE2UM/U1snSMClvBUgOh6lGAhw9hlxLV1A0xA20iMsLAHgPK3pPQ==
+remix-auth-auth0@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/remix-auth-auth0/-/remix-auth-auth0-1.6.0.tgz#3d7d2c12406542b174f68fed5ba9d4b5b1954ed6"
+  integrity sha512-GzFz6nm4Fg0J5e4i6xOR8vfqhwhqRKRNjoCA4Bvg3+MmCAUcrpyjgAMvJkVmYjfqcSverx9Ikd2zxNDRdn4wtg==
   dependencies:
     remix-auth-oauth2 "^1.5.0"
 
