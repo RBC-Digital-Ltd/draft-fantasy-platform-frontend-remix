@@ -2415,27 +2415,12 @@
   dependencies:
     "@remix-run/node" "1.14.0"
 
-"@remix-run/node@1.14.0":
+"@remix-run/node@1.14.0", "@remix-run/node@^1.14.0":
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/@remix-run/node/-/node-1.14.0.tgz#1d53fcf0a0cb165a08c41b7f5cbbfe8e1e4d2e49"
   integrity sha512-TAm6AMAxFTccCAUIMki5VY+6vhBmItFvms1K+uTZc0z62ct0i1JEH+xl2POj6wB0UJhlq8IWchAZ41KKttPV1A==
   dependencies:
     "@remix-run/server-runtime" "1.14.0"
-    "@remix-run/web-fetch" "^4.3.2"
-    "@remix-run/web-file" "^3.0.2"
-    "@remix-run/web-stream" "^1.0.3"
-    "@web3-storage/multipart-parser" "^1.0.0"
-    abort-controller "^3.0.0"
-    cookie-signature "^1.1.0"
-    source-map-support "^0.5.21"
-    stream-slice "^0.1.2"
-
-"@remix-run/node@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@remix-run/node/-/node-1.13.0.tgz#275a0b616b455e4b90250c8b2d42609f5bf9ba9c"
-  integrity sha512-FDvPGaoDyon8UGYQ9DroLtiX8vFa0efBQQSHV3az0s7HbUpugw7BcA6NBW5pIs2z5sszCCeRbAgSIXcETLzfhw==
-  dependencies:
-    "@remix-run/server-runtime" "1.13.0"
     "@remix-run/web-fetch" "^4.3.2"
     "@remix-run/web-file" "^3.0.2"
     "@remix-run/web-stream" "^1.0.3"
