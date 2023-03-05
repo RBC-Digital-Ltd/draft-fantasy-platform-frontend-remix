@@ -155,7 +155,8 @@ jobs:
             kv/auth0 domain | AUTH0_DOMAIN ;
             kv/auth0 logout_url | AUTH0_LOGOUT_URL ;
             kv/auth0 web_client_secret | SECRETS ;
-            kv/fantasy_api url | API_BASE
+            kv/fantasy_api url | API_BASE ;
+            kv/ga_tracking_id value | GA_TRACKING_ID
 
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
@@ -176,6 +177,7 @@ jobs:
           flyctl secrets set AUTH0_CALLBACK_URL=https://${AUTH0_RETURN_TO_URL}/callback
           flyctl secrets set SECRETS=$SECRETS
           flyctl secrets set API_BASE=$API_BASE
+          flyctl secrets set GA_TRACKING_ID=$GA_TRACKING_ID
 
       - name: Deploy using remote builder
         run: flyctl deploy --remote-only
