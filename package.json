@@ -40,7 +40,7 @@
     "@babel/core": "^7.21.3",
     "@playwright/test": "^1.32.1",
     "@remix-run/dev": "^1.14.3",
-    "@remix-run/eslint-config": "^1.14.3",
+    "@remix-run/eslint-config": "^1.15.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
