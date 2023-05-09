@@ -64,152 +64,159 @@ export default function Players() {
           
           We plan to use a custom component so that we can control the styling
       */}
-      <h2 className="text-xl text-gray-900">Filters</h2>
-      <div className="flex items-center gap-4">
-        <label htmlFor="position">Position:</label>
-        <select
-          name="position"
-          id="position"
-          value={selectedPositions[0]}
-          onChange={(e) => {
-            const index = selectedPositions.findIndex(
-              (f) => f === e.target.value
-            );
-            if (index >= 0) {
-              selectedPositions.splice(index, 1); // Remove position from array
-              setSelectedPositions([...selectedPositions]);
-            } else {
-              setSelectedPositions([...selectedPositions, e.target.value]);
-            }
-          }}
-        >
-          <option key="all" value="all">
-            All
-          </option>
-          {positions.map((position) => {
-            return (
-              <option key={position} value={position}>
-                {position}
-              </option>
-            );
-          })}
-        </select>
+      <section className="bg-slate-100 p-8">
+        <h2 className="text-sm uppercase text-gray-500">Filters</h2>
+        <div className="flex items-center gap-4">
+          <label htmlFor="position">Position:</label>
+          <select
+            name="position"
+            id="position"
+            value={selectedPositions[0]}
+            onChange={(e) => {
+              const index = selectedPositions.findIndex(
+                (f) => f === e.target.value
+              );
+              if (index >= 0) {
+                selectedPositions.splice(index, 1); // Remove position from array
+                setSelectedPositions([...selectedPositions]);
+              } else {
+                setSelectedPositions([...selectedPositions, e.target.value]);
+              }
+            }}
+          >
+            <option key="all" value="all">
+              All
+            </option>
+            {positions.map((position) => {
+              return (
+                <option key={position} value={position}>
+                  {position}
+                </option>
+              );
+            })}
+          </select>
 
-        <label htmlFor="team">Team:</label>
-        <select
-          name="team"
-          id="team"
-          value={selectedTeams[0]}
-          onChange={(e) => {
-            const index = selectedTeams.findIndex((f) => f === e.target.value);
-            if (index >= 0) {
-              selectedTeams.splice(index, 1); // Remove position from array
-              setSelectedTeams([...selectedTeams]);
-            } else {
-              setSelectedTeams([...selectedTeams, e.target.value]);
-            }
-          }}
-        >
-          <option key="all" value="all">
-            All
-          </option>
-          {teams.map((team) => {
-            return (
-              <option key={team} value={team}>
-                {team}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      {/* 
+          <label htmlFor="team">Team:</label>
+          <select
+            name="team"
+            id="team"
+            value={selectedTeams[0]}
+            onChange={(e) => {
+              const index = selectedTeams.findIndex(
+                (team) => team === e.target.value
+              );
+              if (index >= 0) {
+                selectedTeams.splice(index, 1); // Remove position from array
+                setSelectedTeams([...selectedTeams]);
+              } else {
+                setSelectedTeams([...selectedTeams, e.target.value]);
+              }
+            }}
+          >
+            <option key="all" value="all">
+              All
+            </option>
+            {teams.map((team) => {
+              return (
+                <option key={team} value={team}>
+                  {team}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        {/* 
           Chips.
           
           Display the selected filters underneath the dropdowns
       */}
-      <div className="flex flex-wrap gap-2">
-        {selectedPositions.map((sp) => {
-          if (sp === "ALL") return null;
-          return (
-            <div
-              key={sp}
-              className="flex gap-2 bg-slate-400 px-3 py-1 rounded-full"
-            >
-              <span>{sp}</span>
-              <button
-                onClick={() => {
-                  const index = selectedPositions.findIndex((f) => f === sp);
-                  if (index >= 0) {
-                    selectedPositions.splice(index, 1); // Remove position from array
-                    setSelectedPositions([...selectedPositions]);
-                  }
-                }}
+        <div className="flex flex-wrap gap-2">
+          {selectedPositions.map((selectedPosition) => {
+            if (selectedPosition === "ALL") return null;
+            return (
+              <div
+                key={selectedPosition}
+                className="flex gap-2 bg-slate-400 px-3 py-1 rounded-full"
               >
-                X
-              </button>
-            </div>
-          );
-        })}
-        {selectedTeams.map((t) => {
-          if (t === "ALL") return null;
-          return (
-            <div
-              key={t}
-              className="flex gap-2 bg-slate-400 px-3 py-1 rounded-full"
-            >
-              <span>{t}</span>
-              <button
-                onClick={() => {
-                  const index = selectedTeams.findIndex((f) => f === t);
-                  if (index >= 0) {
-                    selectedTeams.splice(index, 1); // Remove position from array
-                    setSelectedTeams([...selectedTeams]);
-                  }
-                }}
+                <span>{selectedPosition}</span>
+                <button
+                  onClick={() => {
+                    const index = selectedPositions.findIndex(
+                      (thisPosition) => thisPosition === selectedPosition
+                    );
+                    if (index >= 0) {
+                      selectedPositions.splice(index, 1); // Remove position from array
+                      setSelectedPositions([...selectedPositions]);
+                    }
+                  }}
+                >
+                  X
+                </button>
+              </div>
+            );
+          })}
+          {selectedTeams.map((t) => {
+            if (t === "ALL") return null;
+            return (
+              <div
+                key={t}
+                className="flex gap-2 bg-slate-400 px-3 py-1 rounded-full"
               >
-                X
-              </button>
-            </div>
-          );
-        })}
-      </div>
+                <span>{t}</span>
+                <button
+                  onClick={() => {
+                    const index = selectedTeams.findIndex((f) => f === t);
+                    if (index >= 0) {
+                      selectedTeams.splice(index, 1); // Remove position from array
+                      setSelectedTeams([...selectedTeams]);
+                    }
+                  }}
+                >
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </div>
 
-      <div className="grid grid-cols-3">
-        <div className="font-bold">Player</div>
-        <div className="font-bold">Position</div>
-        <div className="font-bold">Team</div>
-        {players
-          .filter((player) => {
-            // If the selected positions doesn't include any specific position, show all positions
-            if (
-              !selectedPositions.length ||
-              (selectedPositions.length === 1 && selectedPositions[0] === "ALL")
-            ) {
-              return true;
-            }
+        <div className="grid grid-cols-3">
+          <div className="font-bold">Player</div>
+          <div className="font-bold">Position</div>
+          <div className="font-bold">Team</div>
+          {players
+            .filter((player) => {
+              // If the selected positions doesn't include any specific position, show all positions
+              if (
+                !selectedPositions.length ||
+                (selectedPositions.length === 1 &&
+                  selectedPositions[0] === "ALL")
+              ) {
+                return true;
+              }
 
-            return selectedPositions.includes(player.position);
-          })
-          .filter((player) => {
-            // If the selected teams don't include any specific team, show all teams
-            if (
-              !selectedTeams.length ||
-              (selectedTeams.length === 1 && selectedTeams[0] === "ALL")
-            ) {
-              return true;
-            }
+              return selectedPositions.includes(player.position);
+            })
+            .filter((player) => {
+              // If the selected teams don't include any specific team, show all teams
+              if (
+                !selectedTeams.length ||
+                (selectedTeams.length === 1 && selectedTeams[0] === "ALL")
+              ) {
+                return true;
+              }
 
-            return selectedTeams.includes(player.footballTeam.name);
-          })
+              return selectedTeams.includes(player.footballTeam.name);
+            })
 
-          .map(({ name, position, footballTeam }) => (
-            <>
-              <div>{name}</div>
-              <div>{position}</div>
-              <div>{footballTeam.name}</div>
-            </>
-          ))}
-      </div>
+            .map(({ name, position, footballTeam }) => (
+              <>
+                <div>{name}</div>
+                <div>{position}</div>
+                <div>{footballTeam.name}</div>
+              </>
+            ))}
+        </div>
+      </section>
     </main>
   );
 }
